@@ -37,11 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'blog',
-=======
-    'blog.apps.BlogConfig',
->>>>>>> 1d2697b (Add profil-model, tag-model and post-model)
 ]
 
 MIDDLEWARE = [
