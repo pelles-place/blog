@@ -29,7 +29,7 @@ class Post(models.Model):
     publish_date = models.DateTimeField(blank=True, null=True)
     published = models.BooleanField(default=False)
     author = models.ForeignKey(Profile, on_delete=models.PROTECT)
-    tags = models.ManyToManyField(Tag, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True) 
 
     class Meta:
         ordering = ["-publish_date"]  #order by publish_date in descending order
