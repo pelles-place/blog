@@ -30,5 +30,3 @@ const { result, loading, error } = {
     <article>{{ post.body }}</article>
   </section>
 </template>
-
-<!-- ... -->
