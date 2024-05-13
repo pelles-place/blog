@@ -62,7 +62,6 @@ class Query(graphene.ObjectType):
             models.Post.objects.prefetch_related("tags")
             .select_related("author")
             .filter(tags__name__iexact=tag)
-            # .values_list("title", flat=True)
         )
 
 schema = graphene.Schema(query=Query)
