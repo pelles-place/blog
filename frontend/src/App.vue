@@ -5,12 +5,9 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header>
     <div class="wrapper">
-      <h1>JBloG</h1>
+      <h1>BLOG</h1>
       <nav>
         <RouterLink to="/">Posts</RouterLink>
-        <RouterLink :to="{ name: 'author' }">Author</RouterLink>
-        <RouterLink :to="{ name: 'post' }">Post</RouterLink>
-        <RouterLink :to="{ name: 'tag' }">Tag</RouterLink>
       </nav>
     </div>
   </header>
