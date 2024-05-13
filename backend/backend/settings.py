@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = ('http://localhost:5173',)
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -130,6 +132,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GRAPHENE = {
   "SCHEMA": "blog.schema.schema",
 }
-
-
-CORS_ALLOWED_ORIGINS = ('http://localhost:5173',)

@@ -4,13 +4,8 @@ import { useRoute } from "vue-router";
 import { useQuery } from "@vue/apollo-composable";
 import { gql } from "graphql-tag";
 
-// ***** This doesnt work... 
-// PostView.vue:14 Uncaught (in promise) RangeError: Invalid time value
-//     at Proxy.displayableDate (PostView.vue:14:49)
-//     at Proxy._sfc_render (PostView.vue:52:23) 
 
-
-const dateFormatter = new Intl.DateTimeFormat("en-GB", { dateStyle: "full" });
+const dateFormatter = new Intl.DateTimeFormat("en-US", { dateStyle: "full" });
 const displayableDate = (date) => dateFormatter.format(new Date(date));
 const route = useRoute();
 const slug = route.params.slug;
@@ -31,7 +26,6 @@ const { result, loading, error } = useQuery (gql`
           username
           firstName
           lastName
-      
         }
       } 
       tags {
@@ -51,7 +45,6 @@ const { result, loading, error } = useQuery (gql`
     <p>{{ post.metaDescription }}</p>
     <aside>
       Published on {{ displayableDate(post.publishDate) }}<br /> 
-      <!-- Published on {{ post.publishDate }}<br />  -->
       Written by <AuthorLink :author="post.author" />
       <h4>Tags</h4>
       <ul>

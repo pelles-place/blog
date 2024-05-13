@@ -1,7 +1,6 @@
 <script setup>
 import AuthorLink from "./AuthorLink.vue";
-import { RouterLink } from "vue-router";   // Q -> it doesn't work w/o curly brackets, why not?
-// import * as VueRouter from 'vue-router';
+import { RouterLink } from "vue-router";   
 
 const props = defineProps({
   posts: {
