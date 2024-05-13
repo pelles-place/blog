@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header>
     <div class="wrapper">
-      <h1>JB-lo-G</h1>
+      <h1>BLOG</h1>
       <nav>
         <RouterLink to="/">Posts</RouterLink>
       </nav>

@@ -1,8 +1,9 @@
 import graphene
+from graphene.types import ResolveInfo
 
 from graphene_django import DjangoObjectType
 from django.contrib.auth import get_user_model
-
+from django.db.models import QuerySet
 from blog import models
 
 
@@ -28,8 +29,9 @@ class Query(graphene.ObjectType):
     author_by_username = graphene.Field(AuthorType, username=graphene.String())
     post_by_slug = graphene.Field(PostType, slug=graphene.String())
     posts_by_author = graphene.Field(PostType, username=graphene.String())
-    posts_by_tag = graphene.Field(PostType, tag=graphene.String())
-
+    # posts_by_tag = graphene.Field(PostType, tag=graphene.List())
+    posts_by_tag = graphene.List(PostType, tag=graphene.String())
+    
     def resolve_all_posts(root, info): 
         return (
             models.Post.objects.prefetch_related("tags")
@@ -56,11 +58,12 @@ class Query(graphene.ObjectType):
             .filter(author__user__username=username)
         )
 
-    def resolve_posts_by_tag(root, info, tag):
+    def resolve_posts_by_tag(root, info: ResolveInfo, tag: str) -> QuerySet:
         return (
             models.Post.objects.prefetch_related("tags")
             .select_related("author")
             .filter(tags__name__iexact=tag)
+            # .values_list("title", flat=True)
         )
 
 schema = graphene.Schema(query=Query)

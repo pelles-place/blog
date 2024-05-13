@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
   <ol class="post-list">
     <li class="post" v-for="post in posts" :key="post.slug">
-      <RouterLink :to="{ name: 'post', params: { slug: post.slug }}">
+      <RouterLink :to="{ name: 'post', params: { slug: post.slug } }">
         {{ post.title }}
       </RouterLink>
       <span v-if="showAuthor"> by <AuthorLink :author="post.author" /> </span>
